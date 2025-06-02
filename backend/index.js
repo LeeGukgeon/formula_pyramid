@@ -1,7 +1,6 @@
 const express = require('express');
 const { generateTiles, evaluateEquation, findAllSolutions } = require('./gameLogic');
 const app = express();
-const port = 3001;
 
 app.use(express.json());
 
@@ -44,6 +43,4 @@ app.post('/api/game/solve', (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+module.exports = app;
