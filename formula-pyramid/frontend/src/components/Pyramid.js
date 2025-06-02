@@ -3,10 +3,10 @@ import React from 'react';
 function Pyramid({ tiles, selectedTiles, onTileClick }) {
   const tileRows = [];
   if (tiles && tiles.length === 10) {
-    tileRows.push(tiles.slice(0, 4)); // Row 1: 4 tiles
-    tileRows.push(tiles.slice(4, 7)); // Row 2: 3 tiles
-    tileRows.push(tiles.slice(7, 9)); // Row 3: 2 tiles
-    tileRows.push(tiles.slice(9, 10)); // Row 4: 1 tile
+    tileRows.push(tiles.slice(0, 1));  // Row 1: 1 tile (A)
+    tileRows.push(tiles.slice(1, 3));  // Row 2: 2 tiles (B, C)
+    tileRows.push(tiles.slice(3, 6));  // Row 3: 3 tiles (D, E, F)
+    tileRows.push(tiles.slice(6, 10)); // Row 4: 4 tiles (G, H, I, J)
   } else {
     // Fallback for different number of tiles (e.g. display all in one row)
     tileRows.push(tiles || []);
@@ -25,7 +25,7 @@ function Pyramid({ tiles, selectedTiles, onTileClick }) {
                 onClick={() => onTileClick(tile)}
                 // disabled={/* Add disabled logic if needed later */}
               >
-                {tile.operator} {tile.number}
+                {`${tile.name}: ${tile.operator} ${tile.number}`}
               </button>
             );
           })}

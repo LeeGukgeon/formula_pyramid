@@ -1,5 +1,5 @@
 const express = require('express');
-const { generateTiles, evaluateEquation } = require('./gameLogic');
+const { generateTiles, evaluateEquation, findAllSolutions } = require('./gameLogic');
 const app = express();
 const port = 3001;
 
@@ -26,6 +26,22 @@ app.post('/api/game/check', (req, res) => {
   const success = (calculatedValue === targetNumber && calculatedValue !== Infinity);
 
   res.json({ success, calculatedValue, targetNumber });
+});
+
+app.post('/api/game/solve', (req, res) => {
+  const { tiles, targetNumber } = req.body;
+
+  if (!tiles || !Array.isArray(tiles) || typeof targetNumber !== 'number') {
+    return res.status(400).json({ error: 'Invalid input: tiles array and targetNumber are required.' });
+  }
+
+  try {
+    const solutions = findAllSolutions(tiles, targetNumber);
+    res.json(solutions);
+  } catch (error) {
+    console.error("Error in /api/game/solve:", error);
+    res.status(500).json({ error: 'Error solving game combinations.' });
+  }
 });
 
 app.listen(port, () => {
