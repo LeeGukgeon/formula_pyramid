@@ -1,0 +1,117 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.App {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center; /* Center align text for sections */
+}
+
+.App h1 { /* Main game title */
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Game Info (Target, Equation) */
+.game-info {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+}
+.game-info h2, .game-info h3 {
+  margin: 5px 0;
+  color: #495057;
+}
+.game-info h3 span { /* For the equation string itself */
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Pyramid Container & Tiles */
+.pyramid-display { /* New container for just the pyramid */
+    margin-bottom: 20px;
+}
+.pyramid-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px; /* Space between rows */
+}
+.tile-button {
+  padding: 12px 18px; /* Slightly larger padding */
+  margin: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff; /* Default white */
+  cursor: pointer;
+  font-size: 1.1em; /* Slightly larger font */
+  border-radius: 4px;
+  min-width: 80px; /* Ensure buttons have some minimum width */
+  text-align: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.tile-button:hover {
+  border-color: #007bff;
+}
+.tile-button.selected {
+  background-color: #cfe2ff; /* Bootstrap's info-bg-subtle like */
+  border-color: #007bff;
+  font-weight: bold;
+}
+.tile-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Controls Area (Buttons) */
+.controls {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.controls button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.2s;
+}
+.controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.check-button {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+.check-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+.new-game-button {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
+.new-game-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+/* Result Message */
+.result-message {
+  margin-top: 20px; /* Increased margin */
+  padding: 15px;   /* Increased padding */
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1em;
+  /* Border and color are handled by inline styles in App.js for dynamic success/failure */
+}
+.result-message p {
+    margin: 5px 0;
+}
