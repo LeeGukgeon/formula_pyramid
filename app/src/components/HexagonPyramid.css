@@ -1,0 +1,64 @@
+.hexagon-pyramid {
+  display: flex;
+  flex-direction: column; /* Stack rows vertically */
+  align-items: center; /* Center rows horizontally */
+  padding: 10px;
+  margin-top: 20px; /* Add some space from the header */
+}
+
+.hexagon-row {
+  display: flex;
+  justify-content: center; /* Center hexagons within their row */
+  /*
+    For hexagons (width 100px, height 86.6px):
+    Vertical spacing: The points of hexagons in one row should nest between the flat tops of the row below.
+    The height of the overlapping part of a hexagon is height/2 = 43.3px.
+    So, rows should effectively overlap or be spaced such that this nesting occurs.
+    If a hexagon's full height is 86.6px, we want the next row to start about 3/4 of the way down from the top of the current row's hexagons,
+    or effectively, margin-bottom should be negative.
+    Let's try a negative margin-bottom on the row.
+    The height of the hexagon is 86.6px.
+    The vertical distance from center to tip is 43.3px.
+    We want rows to be closer than the full height.
+    If a hexagon row is followed by another, the vertical spacing between the centers of the hexagons in adjacent rows
+    should be height * 3/4. (center of hex to tip + half of flat side = H/2 + H/4 = 3H/4)
+    No, more simply, the "height" of a hexagon for stacking purposes (top point to bottom point) is 86.6px.
+    The vertical distance from one row's center to the next row's center should be `height * 0.75` if they are point-nested.
+    Or, if they are flat-nested, it's `height`.
+    Hexagons are typically point-nested (top point of lower hex fits into bottom-V of two upper hexes).
+    The vertical distance occupied by a hexagon that allows tight packing is related to its flat-to-flat height if it were rotated, or point-to-point height as is.
+    Height = 86.6px.
+    The vertical spacing between rows needs to be less than the height of the hexagon.
+    Let's try margin-bottom: -22px; (roughly -height/4)
+    This should make the top of the next row's hexagons tuck under the previous row.
+    The exact value needs tuning. A common value is -(hexagon height / 4 + border width).
+    Our hexagon height is 86.6px. So -21.65px.
+  */
+  margin-bottom: -20px; /* Adjusted for tighter packing, will need tuning */
+  /*
+    Horizontal offset for rows:
+    Row 4 (1 hex): 0 offset
+    Row 3 (2 hexes): Each hex is 100px wide. No, the row itself should be offset if not centered.
+                     But we center rows, so the natural centering should handle it.
+    Row 2 (3 hexes): Needs to be wider.
+    Row 1 (4 hexes): Widest.
+
+    The .hexagon itself has margin: 5px.
+    So, two hexagons side-by-side have 5px+5px = 10px space between their bounding boxes due to their own margins.
+  */
+}
+
+.hexagon-row:last-child {
+  margin-bottom: 0; /* No negative margin for the last row */
+}
+
+/*
+  To achieve the alternating horizontal offset for true honeycomb:
+  Rows with an even number of items might need a slight nudge if the items are centered.
+  e.g. a row of 2 items, if centered, will have its items symmetrically placed.
+  A row of 3 items will also be symmetrically placed.
+  The key is that a hexagon in one row should sit above the space *between* two hexagons in the row below it.
+  This is naturally handled if the rows are centered and the number of items alternates,
+  but for 4-3-2-1 pyramid, the `justify-content: center` on `hexagon-row` should mostly achieve the visual.
+  Let's test this first.
+*/

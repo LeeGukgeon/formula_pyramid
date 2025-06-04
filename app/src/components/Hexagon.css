@@ -1,0 +1,37 @@
+.hexagon {
+  width: 100px;
+  height: 115.47px; /* width * sqrt(3)/2 * 1.15 (approx for better spacing) -- actually height should be width * (sqrt(3)/2) for a regular hexagon if width is point-to-point, or width / (sqrt(3)/2) if width is flat-side to flat-side. Let's use a common clip-path generator ratio.
+  A common pattern for clip-path uses height = width * 0.866 (sqrt(3)/2). So for width 100, height is 86.6px.
+  Let's try: width: 100px, height: 86.6px.
+  The text needs to fit, so we might need a slightly taller hexagon or adjust font sizes.
+  Let's use a well-known generator: https://bennettfeely.com/clippy/
+  It suggests for a hexagon: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)
+  This path assumes the box itself provides the dimensions.
+  */
+  width: 100px;
+  height: 86.6px; /* sqrt(3)/2 * 100px */
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 5px; /* Spacing around hexagons */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  /* Adding a border directly won't work well with clip-path.
+     A common workaround is to use a parent div with a background, or a drop-shadow.
+     For simplicity now, we'll skip a visible border or use a drop-shadow.
+  */
+  filter: drop-shadow(0px 0px 2px #555); /* Simulates a border */
+  box-sizing: border-box; /* Ensure padding/border included in width/height if we add them later */
+}
+
+.hexagon-operator {
+  font-size: 1.2em; /* Adjusted for new size */
+  font-weight: bold;
+  margin-bottom: 2px; /* Space between operator and number */
+}
+
+.hexagon-number {
+  font-size: 1em; /* Adjusted for new size */
+}
