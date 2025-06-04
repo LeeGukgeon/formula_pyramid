@@ -10,7 +10,8 @@
   */
   width: 100px;
   height: 86.6px; /* sqrt(3)/2 * 100px */
-  background-color: lightblue;
+  background-color: #4a5568; /* Muted blue-gray, good with dark theme */
+  color: #e2e8f0; /* Light text for contrast */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -18,20 +19,22 @@
   cursor: pointer;
   margin: 5px; /* Spacing around hexagons */
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  /* Adding a border directly won't work well with clip-path.
-     A common workaround is to use a parent div with a background, or a drop-shadow.
-     For simplicity now, we'll skip a visible border or use a drop-shadow.
-  */
-  filter: drop-shadow(0px 0px 2px #555); /* Simulates a border */
-  box-sizing: border-box; /* Ensure padding/border included in width/height if we add them later */
+  filter: drop-shadow(0px 1px 3px rgba(0,0,0,0.4)); /* Slightly softer shadow */
+  box-sizing: border-box;
+  transition: transform 0.2s ease-out, background-color 0.2s ease; /* For hover effects */
+}
+
+.hexagon:hover {
+  background-color: #5a6578; /* Slightly lighter on hover */
+  transform: scale(1.05); /* Subtle zoom effect */
 }
 
 .hexagon-operator {
-  font-size: 1.2em; /* Adjusted for new size */
+  font-size: 1.2em;
   font-weight: bold;
-  margin-right: 5px; /* Space between operator and number */
+  margin-right: 5px;
 }
 
 .hexagon-number {
-  font-size: 1em; /* Adjusted for new size */
+  font-size: 1em;
 }

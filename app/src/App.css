@@ -44,37 +44,100 @@
 /* General App layout */
 .App {
   text-align: center;
+  /* Max-width and margin auto are handled by #root from index.css effectively */
 }
 
 .App-header {
-  background-color: #282c34; /* Dark background for header */
+  background-color: #1e2228; /* Slightly adjusted dark background for header */
   padding: 20px;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Increased spacing */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .App-header h1 {
-  margin: 0;
-  font-size: 2em;
+  margin: 0 0 15px 0; /* Added bottom margin to H1 */
+  font-size: 2.2em; /* Slightly larger */
 }
 
-.selected-hexagon-display {
-  margin-top: 15px;
-  padding: 10px;
-  background-color: #f0f0f0; /* Light grey background */
-  color: #333; /* Dark text for contrast */
-  border-radius: 5px;
-  min-height: 40px; /* Ensure it has some height even when empty */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Game Status Section */
+.game-status {
+  background-color: #2a2e37; /* Darker shade for contrast */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px; /* Space below game status */
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.selected-hexagon-display p {
+.game-status p {
+  margin: 8px 0; /* Spacing between status items */
+  font-size: 1.1em; /* Slightly larger font for readability */
+  color: #e0e0e0; /* Lighter text for status */
+}
+
+.game-status strong {
+  color: #ffffff; /* White color for emphasized parts */
+  font-weight: 600; /* Bolder */
+}
+
+.target-number-display {
+  font-size: 1.3em !important; /* More emphasis for target number */
+  color: #61dafbaa !important; /* React blue for target */
+}
+
+/* Current Selection Display */
+.current-selection-display {
+  background-color: #2a2e37;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px; /* Space below selection display */
+  min-height: 80px; /* Ensure it has some height */
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.current-selection-display h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+
+.current-selection-display ul {
+  list-style-type: none;
+  padding: 0;
   margin: 0;
+  color: #c0c0c0; /* Lighter text for selected items */
+}
+
+.current-selection-display li {
+  padding: 5px 0;
+  font-size: 1em;
+}
+
+.current-selection-display p { /* For "Click up to 3 hexagons..." message */
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+
+/* Game Over Message */
+.game-over-message {
+  background-color: #3e2c2c; /* Reddish hue for game over */
+  color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px auto; /* Centered with margin */
+  width: fit-content; /* Adjust width to content */
+  max-width: 80%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.game-over-message h2 {
+  margin-top: 0;
+  color: #ff8a8a; /* Lighter red for heading */
 }
 
 /* Ensure main content area is clearly separated */
 main {
-  padding: 10px;
+  padding: 20px 0; /* More vertical padding, less horizontal as content within main might have its own */
 }
