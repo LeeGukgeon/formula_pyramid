@@ -36,7 +36,7 @@ const HexagonPyramid: React.FC<HexagonPyramidProps> = ({ onHexagonClick }) => {
       return <p>Generating hexagons...</p>;
     }
 
-    const rowsDefinition = [4, 3, 2, 1]; // Hexagons per row
+    const rowsDefinition = [1, 2, 3, 4]; // Hexagons per row
     let hexagonIndex = 0;
 
     return rowsDefinition.map((hexagonsInRow, rowIndex) => (
