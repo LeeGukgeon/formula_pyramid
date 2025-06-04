@@ -17,17 +17,22 @@ interface HexagonPyramidProps {
 const HexagonPyramid: React.FC<HexagonPyramidProps> = ({ onHexagonClick }) => {
   const [hexagons, setHexagons] = useState<HexagonData[]>([]);
 
+  // Define the static array of 10 hexagon configurations
+  const staticHexagonData: HexagonData[] = [
+    { id: 'hex-0', operator: '+', number: 5 },
+    { id: 'hex-1', operator: '-', number: 3 },
+    { id: 'hex-2', operator: '*', number: 7 },
+    { id: 'hex-3', operator: '/', number: 2 },
+    { id: 'hex-4', operator: '+', number: 9 },
+    { id: 'hex-5', operator: '-', number: 1 },
+    { id: 'hex-6', operator: '*', number: 4 },
+    { id: 'hex-7', operator: '/', number: 8 },
+    { id: 'hex-8', operator: '+', number: 6 },
+    { id: 'hex-9', operator: '-', number: 4 }, // Example, can be adjusted for variety
+  ];
+
   useEffect(() => {
-    const operators = ['+', '-', '*', '/'];
-    const generatedHexagons: HexagonData[] = [];
-    for (let i = 0; i < 10; i++) {
-      generatedHexagons.push({
-        id: `hex-${i}`,
-        operator: operators[Math.floor(Math.random() * operators.length)],
-        number: Math.floor(Math.random() * 10),
-      });
-    }
-    setHexagons(generatedHexagons);
+    setHexagons(staticHexagonData);
   }, []); // Empty dependency array means this runs once on mount
 
   // Function to render hexagons in rows for the pyramid
