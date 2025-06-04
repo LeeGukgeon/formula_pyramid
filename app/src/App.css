@@ -40,3 +40,41 @@
 .read-the-docs {
   color: #888;
 }
+
+/* General App layout */
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34; /* Dark background for header */
+  padding: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.selected-hexagon-display {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f0f0f0; /* Light grey background */
+  color: #333; /* Dark text for contrast */
+  border-radius: 5px;
+  min-height: 40px; /* Ensure it has some height even when empty */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-hexagon-display p {
+  margin: 0;
+}
+
+/* Ensure main content area is clearly separated */
+main {
+  padding: 10px;
+}
