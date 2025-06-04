@@ -34,7 +34,7 @@
     The exact value needs tuning. A common value is -(hexagon height / 4 + border width).
     Our hexagon height is 86.6px. So -21.65px.
   */
-  margin-bottom: -20px; /* Adjusted for tighter packing, will need tuning */
+  margin-top: -20px; /* Adjusted for tighter packing, will need tuning */
   /*
     Horizontal offset for rows:
     Row 4 (1 hex): 0 offset
@@ -48,8 +48,8 @@
   */
 }
 
-.hexagon-row:last-child {
-  margin-bottom: 0; /* No negative margin for the last row */
+.hexagon-row:first-child {
+  margin-top: 0; /* No negative margin for the first row */
 }
 
 /*
